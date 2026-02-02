@@ -37,3 +37,33 @@ It is designed as a beginner-friendly NLP project focusing on **intent recogniti
 ---
 
 ## 📂 Project Structure
+regx_chatbot/
+│
+├── main.py # Chatbot implementation
+├── README.md # Project documentation
+
+---
+
+## ⚙️ How It Works
+1. User enters a message
+2. Input is converted to lowercase
+3. Regex patterns are matched with predefined intents
+4. Corresponding response is returned
+5. If no pattern matches, a fallback message is shown
+
+---
+
+## ▶️ How to Run the Project
+1. Clone the repository:
+```bash
+git clone https://github.com/AlokRoyal/regx_chatbot.git
+```
+2. Navigate to the project directory:
+```
+cd regx_chatbot
+```
+3. Run the chatbot:
+```
+python main.py
+```
+
