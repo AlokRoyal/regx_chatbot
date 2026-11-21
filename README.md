@@ -1,69 +1,43 @@
-# Rule-Based Chatbot using Python & Regex
+# Regex Rule-Based Chatbot
 
-## 📌 Project Description
-This project implements a **Rule-Based Conversational Chatbot** using **Python** and **Regular Expressions (Regex)**.  
-The chatbot works on **pattern-matching rules** to recognize user intent and respond accordingly without using any machine learning models.
+![Python](https://img.shields.io/badge/Python-rule--based-3776AB?logo=python&logoColor=white)
+![NLP](https://img.shields.io/badge/NLP-pattern%20matching-lightgrey)
 
-It is designed as a beginner-friendly NLP project focusing on **intent recognition using keyword mapping**.
+A lightweight command-line chatbot that matches user messages against regular-expression patterns. It is a beginner-friendly example of intent routing using explicit rules rather than machine learning or an LLM.
 
----
+## Supported intents
 
-## 🎯 Features
-- Rule-based conversation flow
-- Intent recognition using **Regex patterns**
-- Keyword-to-intent mapping
-- Fallback response for unknown inputs
-- Supports multiple conversation topics
-- Simple and lightweight implementation
+- Greetings: hi, hello, hey, good morning, good evening
+- Education: college, exam, study, project, subject
+- Weather: weather, rain, temperature, climate
+- Help: help, support, assist
+- Exit: bye, exit, quit, goodbye
 
----
+For each recognized intent, the program returns a predefined response. Unmatched input receives a fallback response. Weather replies are static; the chatbot does not retrieve current weather or use the user's location.
 
-## 🗣️ Supported Conversation Topics
-1. **Greetings** (Hi, Hello, Hey)
-2. **Education / College Queries**
-3. **Weather-related Queries**
-4. **Help & Exit Commands**
+## Architecture
 
----
+Terminal input → lowercase normalization → regex intent matching → predefined reply and intent → exit check or next prompt
 
-## 🛠️ Tech Stack
-- **Programming Language:** Python
-- **Concepts Used:**  
-  - Regular Expressions (Regex)  
-  - Basic NLP concepts  
-  - Conditional logic  
-  - Pattern matching  
+All conversation logic is in main.py. The patterns and response text are regular Python dictionaries, so the behavior can be changed without a model or service.
 
----
+## Run locally
 
-## 📂 Project Structure
-regx_chatbot/
-│
-├── main.py # Chatbot implementation
-├── README.md # Project documentation
+Install Python 3 and run:
 
----
+    python main.py
 
-## ⚙️ How It Works
-1. User enters a message
-2. Input is converted to lowercase
-3. Regex patterns are matched with predefined intents
-4. Corresponding response is returned
-5. If no pattern matches, a fallback message is shown
+Type messages at the You prompt. Enter an exit phrase such as bye or quit to end the loop. There are no third-party dependencies.
 
----
+## Project layout
 
-## ▶️ How to Run the Project
-1. Clone the repository:
-```bash
-git clone https://github.com/AlokRoyal/regx_chatbot.git
-```
-2. Navigate to the project directory:
-```
-cd regx_chatbot
-```
-3. Run the chatbot:
-```
-python main.py
-```
+- main.py — intent patterns, response mapping, response function, and interactive loop
+- README.md — project guide
 
+## Extend the chatbot
+
+Add a pattern and a corresponding response entry for a new intent. Keep patterns specific enough to avoid matching common words accidentally. For more robust behavior, add input validation and unit tests around chatbot_response().
+
+## Limitations
+
+The bot uses substring-style regex intent matching, has no conversation memory, and always returns the first configured response for an intent. It does not use an NLP model, network access, or persistent storage. No automated tests or license file are listed.
